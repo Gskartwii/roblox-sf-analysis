@@ -21,17 +21,15 @@ export type Lunge = {
 	sword_out_timing: Timing?,
 	damage: number,
 	damage_opportunity: Timing,
-	next_damage: number,
 	oa_whip_timing: Timing,
 	sound: Sound?,
 	cursor: string?,
 	next_cursor: string?,
 }
 export type Slash = {
-    lunge_opportunity: Lunge?,
+    lunge: Lunge?,
     damage: number,
     damage_opportunity: Timing,
-    next_damage: number,
 	oa_whip_timing: Timing,
 	sound: Sound?,
 	cursor: string?,
@@ -50,14 +48,19 @@ export type Physics = {
     gravity: number?,
 }
 
-export type Scenario = {
-    physics: Physics,
-    health: Health?,
+export type Sword = {
     slash: Slash?,
     initial_damage: number,
+    rest_damage: number?,
     allow_ties: boolean,
     equip_sound: Sound?,
     unequip_sound: Sound?,
+}
+
+export type Scenario = {
+    physics: Physics?,
+    health: Health?,
+    swords: { [number]: Sword },
 }
 
 return {
